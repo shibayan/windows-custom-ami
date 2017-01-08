@@ -13,7 +13,7 @@ dependencies:
 
 test:
   override:
-    - aws ec2 run-instances --dry-run --cli-input-json file://custom-ami.json --user-data file://userdata.txt
+    - aws ec2 run-instances --dry-run --cli-input-json file://custom-ami.json --user-data file://userdata.txt |& grep -q "succeeded"
 
 deployment:
   master:
