@@ -5,7 +5,7 @@
     "SecurityGroups": [
         "default"
     ],
-    "InstanceType": "t2.medium",
+    "InstanceType": "c4.xlarge",
     "Monitoring": {
         "Enabled": true
     }
