@@ -1,0 +1,18 @@
+<powershell>
+Invoke-WebRequest https://s3-ap-northeast-1.amazonaws.com/custom-ami-resources/requestRouter_amd64.msi -UseBasicParsing -OutFile (Join-Path $env:Temp "requestRouter_amd64.msi")
+
+Start-Process -FilePath (Join-Path $env:Temp "requestRouter_amd64.msi") -ArgumentList "/qn" -Wait
+
+$zipfile = Join-Path $env:Temp "basp.zip"
+$outpath = "C:\basp21"
+
+Invoke-WebRequest https://s3-ap-northeast-1.amazonaws.com/custom-ami-resources/basp.zip -UseBasicParsing -OutFile $zipfile
+
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+[System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
+
+Start-Process -FilePath "C:\Windows\SysWOW64\regsvr32" -ArgumentList "C:\basp21\basp\Basp21.dll /s" -Wait
+
+& "$env:ProgramFiles\Amazon\Ec2ConfigService\ec2config.exe" -sysprep
+</powershell>

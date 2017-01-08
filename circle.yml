@@ -6,4 +6,4 @@ dependencies:
   pre:
     - sudo pip install awscli
   override:
-    - aws ec2 run-instances --cli-input-json file://custom-ami.json
+    - aws ec2 run-instances --cli-input-json file://custom-ami.json --user-data file://userdata.txt
