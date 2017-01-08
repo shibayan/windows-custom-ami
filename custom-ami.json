@@ -3,7 +3,7 @@
     "ImageId": "ami-3df7995a",
     "KeyName": "shibayan",
     "SecurityGroups": [
-        "custom-ami-sg"
+        "default"
     ],
     "InstanceType": "t2.micro",
     "Monitoring": {
