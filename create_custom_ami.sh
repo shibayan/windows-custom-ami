@@ -1,6 +1,6 @@
 #!/bin/bash
 
-instanceId = $(aws ec2 run-instances --cli-input-json file://custom-ami.json --user-data file://userdata.txt | jq -r '.Instances[0].InstanceId')
+instanceId=$(aws ec2 run-instances --cli-input-json file://custom-ami.json --user-data file://userdata.txt | jq -r '.Instances[0].InstanceId')
 
 aws ec2 wait instance-stopped --instance-ids ${instanceId}
 
