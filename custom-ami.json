@@ -1,5 +1,5 @@
 {
-    "DryRun": true,
+    "DryRun": false,
     "ImageId": "ami-3df7995a",
     "KeyName": "shibayan",
     "SecurityGroups": [
