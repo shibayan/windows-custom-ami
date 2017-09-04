@@ -3,9 +3,6 @@
 echo "ec2 run-instances"
 instanceId=$(aws ec2 run-instances --cli-input-json file://custom-ami.json --user-data file://userdata.txt --query "Instances[0].InstanceId" --output text)
 
-echo "wait instance-status-ok - ${instanceId}"
-aws ec2 wait instance-status-ok --instance-ids ${instanceId}
-
 echo "wait instance-stopped - ${instanceId}"
 aws ec2 wait instance-stopped --instance-ids ${instanceId}
 
