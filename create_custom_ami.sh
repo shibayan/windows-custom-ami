@@ -10,7 +10,7 @@ echo "wait instance-stopped - ${instanceId}"
 aws ec2 wait instance-stopped --instance-ids ${instanceId}
 
 echo "ec2 create-image"
-imageId=$(aws ec2 create-image --instance-id ${instanceId} --name windows-ami-$(date "+%Y%m%d-%H%M%S") --query "ImageId" --output text)
+imageId=$(aws ec2 create-image --instance-id ${instanceId} --name windows-custom-ami-v$CIRCLE_BUILD_NUM --query "ImageId" --output text)
 
 echo "wait image-available - ${imageId}"
 aws ec2 wait image-available --image-ids ${imageId}
