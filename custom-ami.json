@@ -1,11 +1,10 @@
 {
     "DryRun": false,
-    "ImageId": "ami-fecfa199",
-    "KeyName": "shibayan",
+    "ImageId": "ami-f86c869e",
     "SecurityGroups": [
         "default"
     ],
-    "InstanceType": "c4.xlarge",
+    "InstanceType": "t2.medium",
     "Monitoring": {
         "Enabled": true
     }

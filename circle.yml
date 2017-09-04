@@ -2,14 +2,9 @@ checkout:
   post:
     - chmod +x ./create_custom_ami.sh
 
-machine:
-  environment:
-    AWS_DEFAULT_REGION: ap-northeast-1
-
 dependencies:
   override:
     - sudo pip install awscli
-    - sudo curl -o /usr/bin/jq -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && sudo chmod +x /usr/bin/jq
 
 test:
   override:
