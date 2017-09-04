@@ -14,5 +14,5 @@ deployment:
   master:
     branch: master
     commands:
-      - ./create_custom_ami.sh
+      - ./create_custom_ami.sh:
           timeout: 1200
